@@ -44,11 +44,20 @@ class Actor
     end
   end
 
-  def self.most_characters
-    self.all.max do |actor|
-      binding.pry
-      actor.my_characters.count
+  #This method gives a sorted listed of all actors by character count
+  def self.character_count
+  char_count = Hash.new(0)
+  self.all.each do |actor|
+    char_count[actor] = actor.my_characters.count
     end
+      sorted = char_count.to_a.sort_by {|char, count| !count}
+      sorted.map do |char, count|
+      char
+    end
+  end
+
+  def self.most_characters
+    self.character_count[0]
   end
 
 end

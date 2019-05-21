@@ -14,6 +14,12 @@ class Show
     @@all
   end
 
+  def actors
+    characters.map do |character|
+      character.actor
+    end
+  end
+
   def on_the_big_screen
     all_movies = Movie.all.select do |movie|
       movie.title == self.name

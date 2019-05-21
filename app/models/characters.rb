@@ -14,16 +14,19 @@ class Character
     @@all
   end
 
-  def most_appearances
-    movie_appearances = Movie.all.select do |movie|
+  def all_movies
+    Movie.all.select do |movie|
       movie.characters.include?(self)
     end
+  end
 
-    show_appearances = Show.all.select do |show|
+  def all_shows
+    Show.all.select do |show|
       show.characters.include?(self)
     end
+  end
 
-
+  def most_appearances
 
   end
 

@@ -35,7 +35,7 @@ class Driver
 
   def self.mileage_cap(d)
     self.all.select do |driver|
-      driver.total_miles > d
+      driver.total_distance > d
     end
   end
 

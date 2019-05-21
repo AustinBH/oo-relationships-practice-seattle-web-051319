@@ -15,13 +15,19 @@ class Movie
     @@all
   end
 
+  def actors
+    characters.map do |character|
+      character.actor
+    end
+  end
+
   def total_characters
     characters.count
   end
 
   def self.most_actors
     self.all.max do |movie|
-      movie.total_characters 
+      movie.total_characters
     end
   end
 
